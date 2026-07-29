@@ -1,0 +1,27 @@
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__col">
+      <p class="footer__brand">Rishav Kumar</p>
+      <p class="footer__tagline">{{ profile.title }} · {{ profile.location }}</p>
+    </div>
+
+    <nav class="footer__links" aria-label="Footer">
+      <a routerLink="/about">About</a>
+      <a routerLink="/skills">Skills</a>
+      <a routerLink="/experience">Experience</a>
+      <a routerLink="/projects">Projects</a>
+      <a routerLink="/contact">Contact</a>
+    </nav>
+
+    <div class="footer__contact">
+      <a [href]="'mailto:' + profile.email">{{ profile.email }}</a>
+      <a [href]="whatsappLink" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      <a [href]="profile.linkedinUrl" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+  </div>
+
+  <div class="container footer__bottom">
+    <span>&copy; {{ year }} Rishav Kumar. All rights reserved.</span>
+    <span class="footer__made-with">Built with Angular</span>
+  </div>
+</footer>

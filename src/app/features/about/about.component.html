@@ -1,0 +1,55 @@
+<section class="section about">
+  <div class="container about__grid">
+    <div class="about__photo-wrap animate-fade-up">
+      <img [src]="images.about.photo" [alt]="'Photo of ' + profile.name" class="about__photo" />
+      <div class="about__photo-frame" aria-hidden="true"></div>
+    </div>
+
+    <div class="about__copy">
+      <p class="eyebrow">About</p>
+      <h1>{{ about.intro }}</h1>
+
+      @for (paragraph of about.paragraphs; track paragraph) {
+        <p class="about__paragraph">{{ paragraph }}</p>
+      }
+
+      <a class="btn btn-primary" [href]="resumePath" target="_blank" rel="noopener noreferrer">
+        View Resume
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section about__meta">
+  <div class="container about__meta-grid">
+    <div class="card">
+      <h3>Work Preference</h3>
+      <ul class="about__chips">
+        @for (pref of about.workPreference; track pref) {
+          <li class="chip">{{ pref }}</li>
+        }
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Education</h3>
+      <ul class="about__education">
+        @for (edu of education; track edu.degree) {
+          <li>
+            <span class="about__edu-degree">{{ edu.degree }}</span>
+            @if (edu.institution) {
+              <span class="about__edu-institution">{{ edu.institution }}</span>
+            }
+            <span class="about__edu-year">{{ edu.year }}</span>
+          </li>
+        }
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Based In</h3>
+      <p>{{ profile.location }}</p>
+      <p class="about__meta-note">Open to remote, hybrid, and on-site roles across NCR.</p>
+    </div>
+  </div>
+</section>

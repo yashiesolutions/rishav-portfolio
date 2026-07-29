@@ -1,0 +1,105 @@
+<section class="hero">
+  <div class="container hero__grid">
+    <div class="hero__copy animate-fade-up">
+      <p class="eyebrow">Available for remote · hybrid · on-site (NCR)</p>
+      <h1 class="hero__title">
+        Architecting hybrid mobile apps that work as well offline as online.
+      </h1>
+      <p class="hero__lede">{{ profile.tagline }}</p>
+
+      <div class="hero__actions">
+        <a class="btn btn-primary" [href]="resumePath" target="_blank" rel="noopener noreferrer">
+          View Resume
+        </a>
+        <a class="btn btn-outline" routerLink="/projects">See Projects</a>
+        <a class="btn btn-teal" routerLink="/contact">Get in Touch</a>
+      </div>
+
+      <dl class="hero__stats">
+        @for (stat of stats; track stat.label) {
+          <div class="hero__stat">
+            <dt>{{ stat.value }}</dt>
+            <dd>{{ stat.label }}</dd>
+          </div>
+        }
+      </dl>
+    </div>
+
+    <!-- Signature visual: layered hybrid-app stack (Native / Bridge / UI) -->
+    <div class="hero__visual" aria-hidden="true">
+      <div class="stack">
+        <div class="stack__layer stack__layer--ui animate-fade-up">
+          <span class="stack__tag">UI LAYER</span>
+          <span class="stack__label">Ionic · Angular</span>
+        </div>
+        <div class="stack__layer stack__layer--bridge animate-fade-up">
+          <span class="stack__tag">BRIDGE</span>
+          <span class="stack__label">Capacitor · Cordova</span>
+        </div>
+        <div class="stack__layer stack__layer--native animate-fade-up">
+          <span class="stack__tag">NATIVE</span>
+          <span class="stack__label">iOS · Android</span>
+        </div>
+        <div class="stack__photo">
+          <img [src]="images.profile.photo" alt="Portrait of {{ profile.name }}" width="220" height="220" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section quicklinks">
+  <div class="container quicklinks__grid">
+    <a routerLink="/skills" class="card quicklinks__card">
+      <span class="quicklinks__index">01</span>
+      <h3>Skills</h3>
+      <p>Frameworks, native tooling, and the sales stack picked up along the way.</p>
+    </a>
+    <a routerLink="/experience" class="card quicklinks__card">
+      <span class="quicklinks__index">02</span>
+      <h3>Experience</h3>
+      <p>13+ years across enterprise apps, government platforms, and real estate deals.</p>
+    </a>
+    <a routerLink="/projects" class="card quicklinks__card">
+      <span class="quicklinks__index">03</span>
+      <h3>Projects</h3>
+      <p>Featured builds for Holcim, Infosys, and Martin Marietta USA.</p>
+    </a>
+    <a routerLink="/about" class="card quicklinks__card">
+      <span class="quicklinks__index">04</span>
+      <h3>About</h3>
+      <p>The longer story — how an engineer ended up closing real estate deals too.</p>
+    </a>
+  </div>
+</section>
+
+<section class="section featured">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Selected work</p>
+      <h2>A few builds worth a closer look</h2>
+    </div>
+
+    <div class="featured__grid">
+      @for (project of featuredProjects; track project.id) {
+        <article class="card featured__card">
+          <div class="featured__image">
+            <img [src]="projectImage(project.imageKey)" [alt]="project.name + ' project preview'" loading="lazy" />
+          </div>
+          <div class="featured__body">
+            <h3>{{ project.name }}</h3>
+            <p class="featured__client">{{ project.client }}</p>
+            <p>{{ project.description }}</p>
+            <ul class="featured__stack">
+              @for (tech of project.stack; track tech) {
+                <li class="chip">{{ tech }}</li>
+              }
+            </ul>
+          </div>
+        </article>
+      }
+    </div>
+
+    <a routerLink="/projects" class="btn btn-outline featured__cta">View all projects</a>
+  </div>
+</section>

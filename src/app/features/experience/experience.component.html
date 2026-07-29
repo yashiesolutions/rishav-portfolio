@@ -1,0 +1,31 @@
+<section class="section experience">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Experience log</p>
+      <h1>13+ years, in reverse-chronological order.</h1>
+      <p>From 2D Flash games to government-grade mobile apps to closing real estate deals.</p>
+    </div>
+
+    <ol class="timeline">
+      @for (job of experience; track job.role + job.period) {
+        <li class="timeline__item">
+          <div class="timeline__marker" [class.timeline__marker--current]="job.current"></div>
+          <div class="card timeline__card">
+            <div class="timeline__header">
+              <div>
+                <h3>{{ job.role }}</h3>
+                <p class="timeline__company">{{ job.company }} · {{ job.location }}</p>
+              </div>
+              <span class="chip timeline__period">{{ job.period }}</span>
+            </div>
+            <ul class="timeline__points">
+              @for (point of job.points; track point) {
+                <li>{{ point }}</li>
+              }
+            </ul>
+          </div>
+        </li>
+      }
+    </ol>
+  </div>
+</section>

@@ -1,0 +1,26 @@
+<section class="section skills">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Skills v8.0</p>
+      <h1>The stack, from UI down to native — plus the sales toolkit.</h1>
+      <p>
+        Eight-plus years building hybrid mobile apps means a wide, battle-tested toolbox.
+        In 2025 that toolbox grew a second, very different set of tools: the ones used to
+        close real estate deals.
+      </p>
+    </div>
+
+    <div class="skills__grid">
+      @for (group of skillGroups; track group.category) {
+        <div class="card skills__group animate-fade-up">
+          <h3>{{ group.category }}</h3>
+          <ul class="skills__tags">
+            @for (skill of group.skills; track skill) {
+              <li class="chip">{{ skill }}</li>
+            }
+          </ul>
+        </div>
+      }
+    </div>
+  </div>
+</section>

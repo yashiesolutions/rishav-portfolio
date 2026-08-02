@@ -39,7 +39,7 @@ export const IMAGE_PATHS = {
   },
 } as const;
 
-export const RESUME_PATH = 'assets/resume/Rishav_Kumar_Resume.pdf';
+export const RESUME_PATH = 'assets/resume/Rishav_Kumar_Resume.html';
 
 /** Safely resolves a project image path from its string key (see ProjectItem.imageKey). */
 export function getProjectImage(imageKey: string): string {

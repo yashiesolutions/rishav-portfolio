@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rishav Kumar – Senior Ionic Angular Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1a2e;
+    --accent: #0f4c75;
+    --accent2: #1b6ca8;
+    --gold: #e8a838;
+    --muted: #6b7a8d;
+    --light: #f0f4f9;
+    --white: #ffffff;
+    --rule: #d0dae8;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #e8edf3;
+    display: flex;
+    justify-content: center;
+    padding: 30px 16px;
+    color: var(--ink);
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .page {
+    background: var(--white);
+    width: 820px;
+    box-shadow: 0 8px 40px rgba(15,76,117,0.18);
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    min-height: 1120px;
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    background: var(--accent);
+    color: var(--white);
+    padding: 36px 24px 36px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .name-block h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    line-height: 1.15;
+    color: var(--white);
+    letter-spacing: -0.3px;
+  }
+  .name-block .role {
+    margin-top: 6px;
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .divider {
+    height: 1px;
+    background: rgba(255,255,255,0.2);
+    margin: 2px 0;
+  }
+
+  .section-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  /* Contact */
+  .contact-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+  .contact-list li { font-size: 11.5px; display: flex; gap: 8px; align-items: flex-start; }
+  .contact-list .ico { width: 14px; flex-shrink: 0; opacity: 0.75; margin-top: 1px; }
+  .contact-list a { color: var(--white); text-decoration: none; word-break: break-all; }
+  .contact-list a:hover { text-decoration: underline; }
+
+  /* Skills */
+  .skill-group { margin-bottom: 12px; }
+  .skill-group-title { font-size: 10px; font-weight: 600; color: var(--gold); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+  .skill-tag {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 3px;
+    padding: 2px 7px;
+    font-size: 10.5px;
+    color: var(--white);
+    white-space: nowrap;
+  }
+  .skill-tag.highlight { background: var(--gold); color: var(--ink); font-weight: 600; border-color: transparent; }
+
+  /* Education */
+  .edu-item { margin-bottom: 10px; }
+  .edu-item .degree { font-size: 11.5px; font-weight: 600; color: var(--white); }
+  .edu-item .institution { font-size: 10.5px; color: rgba(255,255,255,0.7); }
+  .edu-item .year { font-size: 10px; color: var(--gold); }
+
+  /* ── MAIN CONTENT ── */
+  .main {
+    padding: 36px 36px 36px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .main-section-title {
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 2.8px;
+    text-transform: uppercase;
+    color: var(--accent2);
+    border-bottom: 2px solid var(--accent2);
+    padding-bottom: 4px;
+    margin-bottom: 14px;
+  }
+
+  /* Summary */
+  .summary p {
+    font-size: 12.5px;
+    color: var(--ink);
+    line-height: 1.7;
+  }
+  .summary p strong { color: var(--accent); }
+
+  /* Experience */
+  .job { margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid var(--rule); }
+  .job:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .job-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2px; }
+  .job-title { font-size: 13px; font-weight: 600; color: var(--ink); }
+  .job-date {
+    font-size: 10.5px;
+    color: var(--accent2);
+    font-weight: 500;
+    white-space: nowrap;
+    background: var(--light);
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-left: 8px;
+  }
+  .job-company { font-size: 11.5px; color: var(--muted); font-weight: 500; margin-bottom: 6px; }
+  .job-company span { color: var(--accent2); font-weight: 600; }
+
+  .job ul { padding-left: 14px; display: flex; flex-direction: column; gap: 3px; }
+  .job li { font-size: 11.5px; color: #2d3748; }
+  .job li strong { color: var(--accent); }
+
+  /* Projects highlight strip */
+  .project-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .project-card {
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 10px 12px;
+    border-left: 3px solid var(--accent2);
+  }
+  .project-card .p-title { font-size: 11.5px; font-weight: 600; color: var(--ink); }
+  .project-card .p-tech { font-size: 10px; color: var(--gold); font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; margin: 2px 0 4px; }
+  .project-card .p-desc { font-size: 10.5px; color: var(--muted); line-height: 1.5; }
+
+  /* Stats row */
+  .stats-row {
+    display: flex;
+    gap: 0;
+    background: var(--light);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 4px;
+  }
+  .stat-box {
+    flex: 1;
+    text-align: center;
+    padding: 10px 8px;
+    border-right: 1px solid var(--rule);
+  }
+  .stat-box:last-child { border-right: none; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--accent); line-height: 1; }
+  .stat-label { font-size: 9px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-top: 3px; }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .page { box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ════════ SIDEBAR ════════ -->
+  <aside class="sidebar">
+
+    <div class="name-block">
+      <h1>Rishav<br>Kumar</h1>
+      <div class="role">Senior Mobile Architect</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- CONTACT -->
+    <div>
+      <div class="section-label">Contact</div>
+      <ul class="contact-list">
+        <li>
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:rishav.kumar.frontend@gmail.com">rishav.kumar.frontend<br>@gmail.com</a>
+        </li>
+        <li>
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+          +91 87960 88027
+        </li>
+        <li>
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Greater Noida, UP<br>Delhi NCR
+        </li>
+        <li>
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          <a href="https://www.linkedin.com/in/rishav-kumar-b3a692143/" target="_blank">linkedin.com/in/rishav-kumar</a>
+        </li>
+        <li>
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+          <a href="https://yashiesolutions.github.io/rishav-portfolio/" target="_blank">Portfolio</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SKILLS -->
+    <div>
+      <div class="section-label">Core Skills</div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Sales & Business</div>
+        <div class="skill-tags">
+            <span class="skill-tag highlight">Real Estate Sales</span>
+            <span class="skill-tag">Lead Generation</span>
+            <span class="skill-tag">Client Acquisition</span>
+            <span class="skill-tag">Negotiation</span>
+            <span class="skill-tag">CRM</span>
+            <span class="skill-tag">Property Consulting</span>
+            <span class="skill-tag">Site Visits</span>
+            <span class="skill-tag">Deal Closing</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Frameworks</div>
+        <div class="skill-tags">
+          <span class="skill-tag highlight">Ionic 4–8</span>
+          <span class="skill-tag highlight">Angular 8–17</span>
+          <span class="skill-tag">Flutter</span>
+          <span class="skill-tag">React Native</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Languages</div>
+        <div class="skill-tags">
+          <span class="skill-tag highlight">TypeScript</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">Dart</span>
+          <span class="skill-tag">HTML5 / CSS3</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Mobile &amp; Native</div>
+        <div class="skill-tags">
+          <span class="skill-tag highlight">Capacitor</span>
+          <span class="skill-tag">Cordova</span>
+          <span class="skill-tag">SQLite</span>
+          <span class="skill-tag">Biometric Auth</span>
+          <span class="skill-tag">FCM / APNs</span>
+          <span class="skill-tag">Geofencing</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Tools &amp; Platforms</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Firebase</span>
+          <span class="skill-tag">REST APIs</span>
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">Android Studio</span>
+          <span class="skill-tag">Xcode</span>
+          <span class="skill-tag">Figma</span>
+          <span class="skill-tag">VS Code</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Methodologies</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Agile / Scrum</span>
+          <span class="skill-tag">Offline-First</span>
+          <span class="skill-tag">VAPT Testing</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- EDUCATION -->
+    <div>
+      <div class="section-label">Education</div>
+      <div class="edu-item">
+        <div class="degree">BCA</div>
+        <div class="institution">MDU Rohtak</div>
+        <div class="year">2015</div>
+      </div>
+      <div class="edu-item">
+        <div class="degree">12th – CBSE Board</div>
+        <div class="year">2011</div>
+      </div>
+      <div class="edu-item">
+        <div class="degree">10th – ICSE Board</div>
+        <div class="year">2009</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- LANGUAGES -->
+    <div>
+      <div class="section-label">Work Preference</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Remote</span>
+        <span class="skill-tag">Hybrid</span>
+        <span class="skill-tag">On-site (NCR)</span>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- ════════ MAIN ════════ -->
+  <main class="main">
+
+    <!-- STATS -->
+    <div class="stats-row">
+      <div class="stat-box"><div class="stat-num">13+</div><div class="stat-label">Years Experience</div></div>
+      <div class="stat-box"><div class="stat-num">8+</div><div class="stat-label">Years Ionic/Angular</div></div>
+      <div class="stat-box"><div class="stat-num">20+</div><div class="stat-label">Apps Delivered</div></div>
+      <div class="stat-box"><div class="stat-num">5+</div><div class="stat-label">Enterprise Clients</div></div>
+    </div>
+
+    <!-- SUMMARY -->
+    <section class="summary">
+      <div class="main-section-title">Professional Summary</div>
+      <p>
+        <strong>Senior Hybrid Mobile Application Architect</strong> with 13+ years of software development experience and 8+ years specialising in <strong>Ionic Framework (v4–8) and Angular (8–17)</strong>. Proven expertise in building enterprise-grade cross-platform mobile applications for iOS and Android with deep knowledge of <strong>Capacitor, Cordova, SQLite, REST APIs, Firebase, biometric authentication, and offline-first architecture</strong>. Recently expanded into <strong>Real Estate Sales & Business Development</strong>, successfully closing high-value residential property transactions and developing strong client relationship, negotiation, and consultative selling skills. Experienced in leading teams, managing enterprise clients, and delivering results across both technology and customer-facing business domains.
+      </p>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section>
+      <div class="main-section-title">Work Experience</div>
+
+      <div class="job">
+        <div class="job-header">
+            <div class="job-title">Sales Consultant – Real Estate</div>
+            <div class="job-date">2025 – Present</div>
+        </div>
+
+        <div class="job-company">
+            <span>Independent Sales Professional / Channel Partner</span> · Delhi NCR
+        </div>
+
+        <ul>
+            <li>
+                Successfully transitioned into real estate sales while continuing
+                freelance technology consulting, focusing on residential and plotted
+                developments in NCR and Uttar Pradesh.
+            </li>
+
+            <li>
+                <strong>Magic India – Saharanpur</strong>:
+                Closed <strong>2 residential plot sales</strong> with a total ticket
+                size of <strong>₹18 Lakhs each</strong>.
+            </li>
+
+            <li>
+                <strong>Trivor Builders – Noida Extension</strong>:
+                Successfully sold <strong>10 low-rise premium flats</strong> with an
+                average ticket size of <strong>₹70 Lakhs</strong>, managing complete
+                customer acquisition, site visits, negotiations, and deal closure.
+            </li>
+
+            <li>
+                <strong>Noecase – Greater Noida Sector 17C</strong>:
+                Closed <strong>1 residential plot</strong> with a ticket size of
+                <strong>₹36 Lakhs</strong>.
+            </li>
+
+            <li>
+                Built strong expertise in customer relationship management,
+                lead generation, sales presentations, negotiations, objection
+                handling, documentation, and end-to-end deal closure.
+            </li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <div class="job-title">Consultant – Ionic Angular Developer</div>
+          <div class="job-date">Aug 2025 – Oct 2025</div>
+        </div>
+        <div class="job-company"><span>Oneteam Infotech Pvt Ltd</span> · Delhi NCR</div>
+        <ul>
+          <li>Developed <strong>BOG Shield 2.0</strong> (Ionic 8 + Angular) for client Holcim — geofencing, zone tours, risk monitoring, offline SQLite, Firebase, APNs/FCM push notifications, Figma-based UI.</li>
+          <li>Implemented offline-first architecture using Ionic Storage + SQLite ensuring zero data loss in low-connectivity zones.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <div class="job-title">Mobile Architect – Ionic Developer</div>
+          <div class="job-date">Apr 2024 – May 2025</div>
+        </div>
+        <div class="job-company"><span>RST Solutions / Progressix</span> · Delhi NCR</div>
+        <ul>
+          <li>Architected and delivered <strong>4 enterprise apps</strong> (mTrac, WorkOrder, QuickQuotes, Explosives) for <strong>Martin Marietta USA</strong> using Ionic 7–8 + Angular with biometric login, offline sync, and FCM/APNs notifications.</li>
+          <li>Built <strong>3 Flutter/Dart apps</strong> (OMR Test, Online Classes, Kheti Bari React Native) for Progressix; OMR app supported offline test-taking with automatic sync on reconnect.</li>
+          <li>Designed hierarchy-based breadcrumb navigation, media upload/delete flows, and Chart.js weather dashboards.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <div class="job-title">Senior Mobile Application Developer (Mobile Architect)</div>
+          <div class="job-date">Jul 2021 – Apr 2024</div>
+        </div>
+        <div class="job-company"><span>VHR Solutions (Deputed to Infosys)</span> · Delhi NCR</div>
+        <ul>
+          <li>Led development of <strong>ICEGATE</strong> — a high-stakes import/export application for Indian Income Tax offices — for 2+ years on payroll of Infosys, using Ionic 5 + Angular.</li>
+          <li>Implemented enterprise-grade security: <strong>VAPT testing</strong>, SSL certificate validation, root-device detection, screenshot prevention, and app permission hardening.</li>
+          <li>Delivered dynamic dashboards, role-based access, FCM messaging, and image/file upload features serving thousands of government users.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <div class="job-title">Assistant Project Lead / Frontend Developer</div>
+          <div class="job-date">Dec 2020 – Jun 2021</div>
+        </div>
+        <div class="job-company"><span>Troubleshooters Services &amp; Cloud18 Infotech</span> · Delhi NCR</div>
+        <ul>
+          <li>Led development of TS Client App (Urban Clap clone) with RazorPay payment gateway, geolocation, OTP autofill, and service booking flows using Ionic 5 + Angular.</li>
+          <li>Delivered multiple hybrid mobile apps for hotel management, school ERP, and product-based clients at Cloud18.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <div class="job-title">Hybrid App Developer / E-Learning Developer</div>
+          <div class="job-date">Jul 2019 – Nov 2020</div>
+        </div>
+        <div class="job-company"><span>BSC Academy &amp; Digimonk Pvt Ltd</span> · Delhi NCR</div>
+        <ul>
+          <li>Built live-streaming class app for BSC Academy (Ionic 4 + Angular) with YouTube integration, GPS, SQLite, and IMEI-based device tracking.</li>
+          <li>Developed e-learning activities and hybrid apps combining HTML5, Flash ActionScript 3.0, and Ionic.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <div class="job-title">Flash / Mobile Developer → Multimedia Programmer</div>
+          <div class="job-date">May 2011 – Jun 2019</div>
+        </div>
+        <div class="job-company"><span>Trimurti Publication, Dhariwal Enterprises, Endeavour Systems Pvt Ltd</span></div>
+        <ul>
+          <li>8 years of foundational experience: 2D game development (ActionScript 3.0), e-learning content, website maintenance, and early hybrid Android app development.</li>
+          <li>Developed internal tools at Endeavour: ESPL HR app, internal chat (ESIM), mail system, and DJB complaint app with offline sync.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- KEY PROJECTS -->
+    <section>
+      <div class="main-section-title">Featured Projects</div>
+      <div class="project-strip">
+        <div class="project-card">
+          <div class="p-title">BOG Shield 2.0 (Holcim)</div>
+          <div class="p-tech">Ionic 8 · Angular · SQLite · Firebase</div>
+          <div class="p-desc">Geofencing-based tour management with offline support, risk monitoring, and push notifications for a global cement company.</div>
+        </div>
+        <div class="project-card">
+          <div class="p-title">ICEGATE (Infosys / Income Tax)</div>
+          <div class="p-tech">Ionic 5 · Angular · VAPT</div>
+          <div class="p-desc">Import/export enterprise app for government offices with VAPT security hardening, FCM, and dynamic role-based dashboards.</div>
+        </div>
+        <div class="project-card">
+          <div class="p-title">WorkOrder App (Martin Marietta USA)</div>
+          <div class="p-tech">Ionic 8 · Capacitor · Biometric</div>
+          <div class="p-desc">Offline-capable work order management with biometric login, media uploads, hierarchy navigation, and crew assignment.</div>
+        </div>
+        <div class="project-card">
+          <div class="p-title">Coaching Suite (8 Apps)</div>
+          <div class="p-tech">Ionic 7 · Angular · Custom Video</div>
+          <div class="p-desc">8 coaching apps with live/recorded classes, custom video player, online quizzes, PDF viewer, and FCM notifications.</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+</body>
+</html>

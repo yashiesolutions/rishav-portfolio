@@ -83,9 +83,9 @@
     <div class="featured__grid">
       @for (project of featuredProjects; track project.id) {
         <article class="card featured__card">
-          <div class="featured__image">
+          <!-- <div class="featured__image">
             <img [src]="projectImage(project.imageKey)" [alt]="project.name + ' project preview'" loading="lazy" />
-          </div>
+          </div> -->
           <div class="featured__body">
             <h3>{{ project.name }}</h3>
             <p class="featured__client">{{ project.client }}</p>

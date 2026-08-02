@@ -15,11 +15,11 @@
  */
 export const IMAGE_PATHS = {
   profile: {
-    photo: 'assets/images/profile/profile-photo.jpg',
+    photo: 'assets/images/profile/profile-photo.png',
     ogImage: 'assets/images/og/og-cover.jpg',
   },
   about: {
-    photo: 'assets/images/about/about-photo.jpg',
+    photo: 'assets/images/about/about-photo.png',
   },
   projects: {
     bogShield: 'assets/images/projects/bog-shield.jpg',

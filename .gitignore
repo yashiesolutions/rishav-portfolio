@@ -37,3 +37,5 @@ testem.log
 Thumbs.db
 node_modules/
 .angular/
+node_modules/
+.angular/

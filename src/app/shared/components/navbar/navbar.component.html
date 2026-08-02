@@ -1,12 +1,23 @@
 <header class="navbar" [class.navbar--scrolled]="isScrolled()">
   <div class="container navbar__inner">
-    <a routerLink="/" class="navbar__brand" (click)="closeMenu()">
+    <!-- <a routerLink="/" class="navbar__brand" (click)="closeMenu()">
       <span class="navbar__brand-mark">RK</span>
       <span class="navbar__brand-text">
         Rishav Kumar
         <span class="navbar__brand-version">v13.6</span>
       </span>
-    </a>
+    </a> -->
+    <a routerLink="/" class="navbar__brand" (click)="closeMenu()">
+  <img 
+    src="assets/images/profile/profile-photo.png" 
+    alt="Rishav Kumar" 
+    class="navbar__brand-mark" 
+  />
+  <span class="navbar__brand-text">
+    Rishav Kumar
+    <!-- <span class="navbar__brand-version">v13.6</span> -->
+  </span>
+</a>
 
     <nav class="navbar__links" [class.navbar__links--open]="isOpen()" aria-label="Primary">
       @for (link of navLinks; track link.path) {
